@@ -31,7 +31,7 @@ def main():
     genesis_hash['nonce'] = ''
     genesis_hash['timestamp'] = ''
     genesis_hash['parentHash'] = ''
-    genesis_hash['extraDate'] = ''
+    genesis_hash['extraData'] = ''
     genesis_hash['gasLimit'] = ''
     genesis_hash['difficulty'] = ''
     genesis_hash['mixhash'] = ''
@@ -56,6 +56,10 @@ def main():
     # initiate to 0 for the genesis block?
     genesis_hash['parentHash'] = init_hex
     
+    #gasLimit 
+    str_gas_limit = set_gas_limit(100)
+    str_gas_limit = left_pad_x(str_gas_limit)
+    genesis_hash['gasLimit'] = str_gas_limit
     
     
     # output hash
@@ -64,6 +68,8 @@ def main():
 
 # generate nonce
 def generate_nonce():
+    
+    # n <= 2^256/Hd  ^  m = Hm
     
     str_random = binascii.b2a_hex(os.urandom(8))
     #str_random = random.randint(0, 18446744073709551615)
@@ -89,6 +95,19 @@ def generate_timestamp():
     timestamp = binascii.b2a_hex(timestamp)
 
     return timestamp
+
+# set gasLimit
+def set_gas_limit(limit):    
+
+    '''
+        if ((limit == 0) or (not limit)):
+            # set default gas limit value 
+            gas_limit = str(100)
+        else:
+            gas_limit = str(limit)
+    '''
+
+    return gas_limit
 
 if __name__ == "__main__":
     main()
