@@ -53,12 +53,12 @@ def main():
     genesis_hash['timestamp'] = str_timestamp
     
     # parentHash
-    # initiate to 0 for the genesis block?
+    # initiate to 0 for the genesis block
     genesis_hash['parentHash'] = init_hex
     
     #gasLimit 
     str_gas_limit = set_gas_limit(100)
-    str_gas_limit = left_pad_x(str_gas_limit)
+    #str_gas_limit = left_pad_x(str_gas_limit)
     genesis_hash['gasLimit'] = str_gas_limit
     
     
@@ -81,8 +81,6 @@ def left_pad_x(str_input):
     pad = "0x"
     return pad + str_input
 
-
-
 # generate timestamp
 def generate_timestamp():
     '''
@@ -92,22 +90,26 @@ def generate_timestamp():
     '''
     
     timestamp = str(int(time.time()))   # use time.time() to represent Unix time 
-    timestamp = binascii.b2a_hex(timestamp)
+    print timestamp 
+    timestamp = binascii.b2a_hex(timestamp) #this needs to be changed 
+    #print timestamp
 
     return timestamp
 
 # set gasLimit
 def set_gas_limit(limit):    
 
-    '''
-        if ((limit == 0) or (not limit)):
-            # set default gas limit value 
-            gas_limit = str(100)
-        else:
-            gas_limit = str(limit)
-    '''
-
-    return gas_limit
+    if ((limit == 0) or (not limit)):
+        # set default gas limit value 
+        gas_limit_dec = 100
+    else:
+        gas_limit_dec = limit
+    
+    gas_limit_hex= hex(gas_limit_dec) 
+    # strip the '0x' 
+    #gas_limit_hex = gas_limit_hex[2:]
+     
+    return gas_limit_hex
 
 if __name__ == "__main__":
     main()
