@@ -1,0 +1,48 @@
+env setup 
+
+- (probbaly a bash script, turn into python and golang script)
+
+# updates
+# ==============================
+$sudo apt-get update
+$sudo apt-get -y upgrade
+$sudo apt-get install software-properties-common
+# languages installation
+# ==============================
+
+    # Install Python installed (usually already comes with linux distros (maybe make a way to install 3.5 with 2.7?)
+    $sudo apt-get install python
+    # install python pip
+    $python get-pip.py
+
+
+    # install golang
+      $sudo apt-get install golang
+      # OR install from GoLang website
+          $sudo curl -O https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
+          $sudo tar -xvf go1.6.linux-amd64.tar.gz
+          $sudo mv go /usr/local 
+        # set GoLang path
+          $sudo vi ~/.profile
+            export PATH=$PATH:/usr/local/go/bin (add to end of file)
+          $source ~/.profile
+    
+    # install nodejs and npm
+    $sudo apt-get install -y nodejs
+    $sudo apt-get install -y build-essential
+    
+# Ethereum setup
+==============================
+    # Install Geth
+      $sudo add-apt-repository -y ppa:ethereum/ethereum
+      $sudo apt-get update
+      $sudo apt-get install ethereum
+
+
+# development
+==============================
+    # install testrpc (rapid node deploy)
+    $npm install -g ethereumjs-testrpc
+
+    # install truffle (dapp develpoment/deployment)
+    $npm install -g truffle
