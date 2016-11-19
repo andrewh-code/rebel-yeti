@@ -11,6 +11,12 @@ https://truffle.readthedocs.io/en/latest/
 - initiate truffle (creates the directories and projects)
 $truffle init
 
+- go into contracts folder and execute
+$truffle create:contract <contract name>
+
+- after making contract, go to migratoins folder
+edit the 2_deploy_contracts.js
+
 - compile truffle (compile all the .sol contracts in the contracts directory)
 $truffle compile 
 
@@ -35,3 +41,6 @@ eth_getTransactionReceipt
 eth_getCode
 eth_uninstallFilter
 eth_sendTransaction
+
+
+
