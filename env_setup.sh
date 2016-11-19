@@ -120,3 +120,35 @@ then
     exit 1
 fi
 
+
+# install nodejs
+# ==============================
+
+# make sure to have at least nodejs version 6.0 installed or else testrpc won't install properly
+# option to set nodejs 7?
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to curl nodejs v6.0s"
+    exit 1
+fi
+
+apt-get install nodejs
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install nodejs"
+    exit 1
+fi
+
+# install ethereum testrpc (good luck, so many problems with this)
+npm install -g ethereumjs-testrpc
+# provide a funky if statement here
+
+# install truffle
+npm install -g truffle
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install truffle"
+    exit 1
+fi
+
