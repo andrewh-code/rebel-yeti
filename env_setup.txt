@@ -13,7 +13,7 @@ $sudo apt-get install software-properties-common
     # Install Python installed (usually already comes with linux distros (maybe make a way to install 3.5 with 2.7?)
     $sudo apt-get install python
     # install python pip
-    $python get-pip.py
+    $apt-get install python-pip
 
 
     # install golang
