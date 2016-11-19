@@ -1,0 +1,37 @@
+- install testrpc
+sudo npm install -g ethereumjs-testrpc
+testrpc
+
+- install truffle
+sudo npm install -g truffle
+
+==============================
+https://truffle.readthedocs.io/en/latest/
+==============================
+- initiate truffle (creates the directories and projects)
+$truffle init
+
+- compile truffle (compile all the .sol contracts in the contracts directory)
+$truffle compile 
+
+- migrate (deploy the contracts to the testrpc node)
+$truffle migrate
+
+- check migration was successful
+- go back to the terminal with testrpc and see the results
+ie)
+eth_accounts
+eth_sendTransaction
+
+  Transaction: 0xccc59defa6d69fae787fc3f08fb9fe4fde0819bc2b1813fbe1f2f71c94066e6                                                                                                                                                             8
+  Contract created: 0xf524055ed25580db3150f4ef190f8261b0a10558
+  Gas usage: 0x0269f7
+  Block Number: 0x01
+  Block Time: Sat Sep 10 2016 17:39:20 GMT+0000 (UTC)
+
+eth_newBlockFilter
+eth_getFilterChanges
+eth_getTransactionReceipt
+eth_getCode
+eth_uninstallFilter
+eth_sendTransaction
