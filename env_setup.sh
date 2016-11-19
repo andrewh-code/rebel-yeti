@@ -36,7 +36,6 @@ then
     exit 1
 fi
 
-
 # check if python is installed
 if [ ! -d "$PYTHON2_DIR" ]
 then
@@ -80,4 +79,44 @@ then
     exit 1
 fi
 
+
+# install ethereum
+# ========================================
+add-apt-repository -y ppa:ethereum/ethereum
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install ethereum reppository"
+    exit 1
+fi
+
+add-apt-repository -y ppa:ethereum/ethereum-dev
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install ethereum-dev repository"
+    exit 1
+fi
+
+# run update to make sure dependencies are correct after adding eth repos or else install etheruem command won't work
+apt-get update
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to update the machine for ethereum"
+    exit 1
+fi
+
+# install ethereum
+apt-get -y install ethereum
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install ethereum"
+    exit 1
+fi
+
+# install solidity compiler
+apt-get -y install solc
+if [ $? -ne 0 ]
+then
+    echo "env_setup.sh: Error: ${?} - Unable to install build-essentials"
+    exit 1
+fi
 
