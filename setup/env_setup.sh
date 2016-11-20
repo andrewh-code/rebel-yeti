@@ -10,8 +10,9 @@ PYTHON2_DIR=/usr/bin/python2
 PYTHON3_DIR=/usr/bin/python3
 PYTHON_PIP=/usr/bin/pip
 
+# ==========================================
 # update Linux environment
-
+# ==========================================
 # update 
 apt-get -y update
 if [ $? -ne 0 ]
@@ -35,6 +36,14 @@ then
     echo "env_setup.sh: Error: ${?} - Unable to install software-properties-common"
     exit 1
 fi
+
+
+# ==========================================
+# install the supporting languages
+# - install python
+# - install golang
+# - install c/c++
+# ==========================================
 
 # check if python is installed
 if [ ! -d "$PYTHON2_DIR" ]
@@ -78,6 +87,15 @@ then
     echo "env_setup.sh: Error: ${?} - Unable to install build-essentials"
     exit 1
 fi
+
+
+# install GoLang
+# check if golang installed, check version
+apt-get install golang
+#if apt-get install doesn't work, use curl or wget
+wget https://storage.googleapis.com/golang/go1.7.linux-amd64.tar.gz
+tar -xvf go1.7.linux-amd64.tar.gz
+mv go /usr/local
 
 
 # install ethereum
@@ -151,3 +169,10 @@ then
     echo "env_setup.sh: Error: ${?} - Unable to install truffle"
     exit 1
 fi
+
+
+# install meteor for dapp development
+# figure out a way to get it installed as the main user, not the root user  
+curl https://install.meteor.com/ | sh
+
+# check to make sure that everything is installed and up to date and working properly 

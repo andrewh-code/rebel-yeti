@@ -33,6 +33,10 @@ eth_sendTransaction
   Contract created: 0xf524055ed25580db3150f4ef190f8261b0a10558
   Gas usage: 0x0269f7
   Block Number: 0x01
+$ truffle compile
+$ truffle migrate
+$ truffle test
+$ truffle serve // server at localhost:8080
   Block Time: Sat Sep 10 2016 17:39:20 GMT+0000 (UTC)
 
 eth_newBlockFilter
