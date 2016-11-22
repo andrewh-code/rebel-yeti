@@ -1,0 +1,4 @@
+- alexa voice commands
+- output voice commands onto screen
+- copy voice commands in variable
+- send to blockchain
