@@ -2,3 +2,5 @@
 - output voice commands onto screen
 - copy voice commands in variable
 - send to blockchain
+
+- most liley have to use google voice api. Alexa doesn't do speech to text?
