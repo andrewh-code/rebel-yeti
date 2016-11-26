@@ -171,8 +171,23 @@ then
 fi
 
 
-# install meteor for dapp development
+
+
+# Meteor.js
 # figure out a way to get it installed as the main user, not the root user  
 curl https://install.meteor.com/ | sh
+
+# install MEAN stack for app development
+# install mongodb
+
+# Express
+sudo npm install -g express
+
+# Angular
+sudo npm install angular@1.5.8
+# NodeJS (Already done)
+
+
+
 
 # check to make sure that everything is installed and up to date and working properly 
